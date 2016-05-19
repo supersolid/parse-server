@@ -721,6 +721,11 @@ function untransformObject(schema, className, mongoObject, isNestedObject = fals
             log.info('transform.js',
               'Found a pointer column not in the schema, dropping it.',
               className, newKey);
+            log.info('transform.js', 'typeof schema', typeof schema);
+            if (schema) {
+              log.info('transform.js', 'typeof schema.getExpectedType', typeof schema.getExpectedType);
+              log.info('transform.js', 'schema.data', schema.data);
+            }
             break;
           }
           if (expected && expected.type !== 'Pointer') {
