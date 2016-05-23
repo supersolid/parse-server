@@ -196,6 +196,9 @@ function transformWhere(schema, className, restWhere, options = {validate: true}
     let out = transformKeyValue(schema, className, restKey, restWhere[restKey],
                                 transformKeyOptions);
     mongoWhere[out.key] = out.value;
+    if (restKey === 'user' && out.key !== '_p_user') {
+      log.info('MongoTransform.transformWhere', 'className', className, 'restKey', restKey, 'out', out, 'restWhere', restWhere, 'schema.data', schema.data);
+    }
   }
   return mongoWhere;
 }
