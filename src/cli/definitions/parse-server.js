@@ -195,9 +195,9 @@ export default {
     help: "The TTL for caching the schema for optimizing read/write operations. You should put a long TTL when your DB is in production. default to 0; disabled.",
     action: numberParser("schemaCacheTTL"),
   },
-  "persistSchemaCache": {
-    end: "PARSE_SERVER_PERSIST_SCHEMA_CACHE",
-    help: "Persist the schema cache between requests. Should reduce number of queries made to _SCHEMA collection. Defaults to false",
+  "enableSingleSchemaCache": {
+    env: "PARSE_SERVER_ENABLE_SINGLE_SCHEMA_CACHE",
+    help: "Use a single schema cache shared across requests. Reduces number of queries made to _SCHEMA. Defaults to false, i.e. unique schema cache per request.",
     action: booleanParser
   },
   "cluster": {
