@@ -112,6 +112,7 @@ runner({
     if (options.cluster) {
       const numCPUs = typeof options.cluster === 'number' ? options.cluster : os.cpus().length;
       if (cluster.isMaster) {
+        logOptions();
         for(var i = 0; i < numCPUs; i++) {
           cluster.fork();
         }
