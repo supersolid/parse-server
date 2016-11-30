@@ -10,6 +10,7 @@ export function numberParser(key) {
 
 export function numberOrBoolParser(key) {
   return function(opt) {
+    console.log('numberOrBoolParser', key, opt, typeof opt, opt === 'true', opt == 'true', opt === 'false', opt == 'false');
     if (typeof opt === 'boolean') {
       return opt;
     }
